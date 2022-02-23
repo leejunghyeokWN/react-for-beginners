@@ -25,12 +25,12 @@
   useEffect는 두 번째 프로퍼티로 내가 주시하고자 하는 state를 담는 리스트를 받는다. 첫 로딩 때와 두 번째 프로퍼티 속에 담겨진 state가 갱신될 때에만 첫 번째로 담은 함수가 작동할 것이다.
  
  ### props
-  부모 component에서 자식 component에 변수를 넘겨줄 수 있다. (Props)
+  component를 호출할 때 변수를 넘겨줄 수 있다.
   JSON형식으로 넘어간다.
   따라서 받을 때 const childComponent(prop1, prop2, ...){ } 이런 식으로 바로 JSON을 풀어서 각 변수에 저장할 수도 있다.
   넘겨줄 때와 받을 때 이름을 똑같이 작성해야한다. 아래는 예시이다.
 
-  Home.js --
+  Home.js -- props를 줄 때
   ```js
     <Movie
       id={movie.id}
@@ -40,7 +40,7 @@
       genres={movie.genres}
     />
   ```
-  Movie.js --
+  Movie.js -- props를 받을 때
   ```js
     function Movie({ id, coverImg, title, summary, genres }) {
       return (
@@ -114,4 +114,25 @@
       <li key={g}>{g}</li>
     ))}
   </ul> 이런 식.
+  ```
+
+## Publish (github)
+
+  github에서 제공하는 gh-pages를 install해준다.
+  package.json에서 deploy와 predeploy를 설정해준다. (npm run deploy를 하면 predeploy가 먼저 실행되고 deploy가 실행됨.)
+
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
+
+  package.json에 homepage 주소를 아래와 같이 작성한다.
+
+    "homepage": "https://leejunghyeokWN.github.io/react-for-beginners"
+  
+  npm run build를 하면 생기는 build(실전압축코드)를 gh-pages가 호스팅?해준다. 5분 정도 걸린다.
+  이로써 모두가 페이지를 확인할 수 있다.
+  
+  React router 6버전(react-router-dom 6 이상 버전)으로 진행하시는 분들 중 gh-pages로 배포 후, 빈 화면이 나온다면 Route컴포넌트의 path경로 앞에 process.env.PUBLIC_URL을 추가해서 수정을 해주시면 됩니다. - 강의 댓글 sugar님
+
+  ```
+  Route path={`${process.env.PUBLIC_URL}/`} element={< Home />}
   ```
