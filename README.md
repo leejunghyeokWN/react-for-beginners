@@ -62,14 +62,16 @@
  ### Router
   브라우저 라우터를 사용했다. 해쉬 라우터도 있다고 한다.
   react dom 6.0이상에서는 Switch 컴포넌트 대신 Routes를 쓴다. 이 컴포넌트는 여러 페이지를 한번에 하나씩 라우팅하도록 한다. 이게 없으면 동시에 여러개도 가능?.
-  <Router>
-    <Routes>
-      <Route path="/hello" element={<h1>Hello</h1>}>
-      </Route>
-      <Route path="/movie/:id" element={<Detail />} /> ':'로 라우팅하는 컴포넌트(엘리먼트)에 파라미터를 전달한다.
-      <Route path="/" element={<Home />} />
-    </Routes>
-  </Router>
+    '''html
+    <Router>
+      <Routes>
+        <Route path="/hello" element={<h1>Hello</h1>}>
+        </Route>
+        <Route path="/movie/:id" element={<Detail />} /> ':'로 라우팅하는 컴포넌트(엘리먼트)에 파라미터를 전달한다.
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
+    '''
 
   :id로 전달받은 파라미터는 Detail.js에서 이런 식으로 받는다.
   
