@@ -62,15 +62,25 @@
  ### Router
   브라우저 라우터를 사용했다. 해쉬 라우터도 있다고 한다.
   react dom 6.0이상에서는 Switch 컴포넌트 대신 Routes를 쓴다. 이 컴포넌트는 여러 페이지를 한번에 하나씩 라우팅하도록 한다. 이게 없으면 동시에 여러개도 가능?.
-  ```html
-    <Router>
-      <Routes>
-        <Route path="/hello" element={<h1>Hello</h1>}>
-        </Route>
-        <Route path="/movie/:id" element={<Detail />} /> ':'로 라우팅하는 컴포넌트(엘리먼트)에 파라미터를 전달한다.
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
+
+  App.js
+  ```js
+  import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+  import Detail from "./routes/Detail";
+  import Home from "./routes/Home";
+  function App() {
+    return (
+      <Router>
+        <Routes>
+          <Route path="/hello" element={<h1>Hello</h1>}>
+          </Route>
+          <Route path="/movie/:id" element={<Detail />} /> ':'로 라우팅하는 컴포넌트(엘리먼트)에 파라미터를 전달한다.
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
+    );
+  }
+  export default App;
   ```
   
   :id로 전달받은 파라미터는 Detail.js에서 이런 식으로 받는다.
@@ -89,13 +99,17 @@
   js의 삼항연산자를 활용하여 boolean 타입의 state를 만들고, 그에 따라 페이지 디자인을 스위칭할 수 있다.
   
   (component 함수 내부에서)
+  ```js
   const [switched, setSwitched] = useState(false);
   return (switched ? <h1>Switched!</h1> : <h1>Not switched.</h1>) 이런 식.
+  ```
 
   html의 li와 js의 list에 있는 map 함수를 이용해서 리스트 속 변수들을 한번에 가공해서 페이지에 담는게 가능하다.
   (component 함수 내부에서, genres는 prop으로 받아온 리스트)
+  ```js
   <ul>
     {genres.map((g) => (
       <li key={g}>{g}</li>
     ))}
   </ul> 이런 식.
+  ```
