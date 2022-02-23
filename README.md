@@ -10,6 +10,30 @@
  개발중인 페이지가 자동으로 새로고침된다.
 
 ## 핵심기능
+ ### Component
+  js에서 함수를 정의하는 방식으로 React component를 생성한다. component 이름은 첫 글자를 반드시 대문자로 지어야 한다.
+  이렇게 생성된 Component는 html element처럼 활용된다.
+  ```js
+    function App() {
+      return (
+        <div>
+          Welcome To React.
+        </div>
+      );
+    }
+  ```
+  
+  ReactDOM은 첫 파라미터로 컴포넌트를, 두 번째 파라미터로 이를 랜더링할 위치가 되는 html element를 받는다.
+  ```js
+    ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+  ```
+  > root 속에 App 내용이 들어가는 것.
+
  ### useState
   React에서 변수를 사용할 때 useState로 각 변수를 수정하는 함수를 따로 지정하게하여 안전하게 유지한다. class의 private 변수를 수정하는 개념과 유사했다.
   const [var, setVar] = useState('초기값'); 이런식으로 사용한다. useState의 리턴값이 두개 임을 알 수 있다.
