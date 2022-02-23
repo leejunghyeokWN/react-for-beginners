@@ -31,7 +31,7 @@
   넘겨줄 때와 받을 때 이름을 똑같이 작성해야한다. 아래는 예시이다.
 
   Home.js --
-
+  ```js
     <Movie
       id={movie.id}
       coverImg={movie.medium_cover_image}
@@ -39,9 +39,9 @@
       summary={movie.summary}
       genres={movie.genres}
     />
-
+  ```
   Movie.js --
-
+  ```js
     function Movie({ id, coverImg, title, summary, genres }) {
       return (
         <div>
@@ -58,6 +58,7 @@
         </div>
       );
     }
+  ```
 
  ### Router
   브라우저 라우터를 사용했다. 해쉬 라우터도 있다고 한다.
@@ -97,6 +98,7 @@
 
  ### 활용
   js의 삼항연산자를 활용하여 boolean 타입의 state를 만들고, 그에 따라 페이지 디자인을 스위칭할 수 있다.
+  물론 boolean이 아니더라도 여러 활용 여지가 있음.
   
   (component 함수 내부에서)
   ```js
